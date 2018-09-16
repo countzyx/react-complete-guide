@@ -7,6 +7,8 @@ const App = () => (
   <div className="App">
     <h1>Hi, I&apos;m a React App!</h1>
     <Person />
+    <Person />
+    <Person />
   </div>
 );
 
