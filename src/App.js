@@ -13,12 +13,25 @@ class App extends Component<Props, State> {
     persons: [{ name: 'Max', age: 28 }, { name: 'Manu', age: 29 }, { name: 'Stephanie', age: 26 }],
   };
 
+  switchNameHandler = () => {
+    this.setState({
+      persons: [
+        { name: 'Maxi', age: 28 },
+        { name: 'Manu', age: 29 },
+        { name: 'Stephanie', age: 25 },
+      ],
+    });
+  };
+
   render = () => {
     const { persons } = this.state;
 
     return (
       <div className="App">
         <h1>Hi, I&apos;m a React App!</h1>
+        <button type="button" onClick={this.switchNameHandler}>
+          Switch Name
+        </button>
         <Person name={persons[0].name} age={persons[0].age} />
         <Person name={persons[1].name} age={persons[1].age}>
           My Hobbies: Racing
