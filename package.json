@@ -14,7 +14,12 @@
     "prepublish": "npm run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "flow init": "flow init",
+    "flow start": "flow start",
+    "flow stop": "flow stop",
+    "flow status": "flow status",
+    "flow coverage": "flow coverage"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -22,6 +27,7 @@
     "babel-preset-flow": "^6.23.0",
     "eslint": "^5.6.0",
     "flow-bin": "^0.81.0",
+    "flow-upgrade": "^1.0.4",
     "prettier-eslint": "^8.8.2"
   }
 }
