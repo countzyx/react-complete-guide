@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 type Props = {
-  age: string,
+  age: number,
   children?: React.Node,
   name: string,
 };
