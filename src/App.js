@@ -33,7 +33,7 @@ class App extends Component<Props, State> {
           Switch Name
         </button>
         <Person name={persons[0].name} age={persons[0].age} />
-        <Person name={persons[1].name} age={persons[1].age}>
+        <Person name={persons[1].name} age={persons[1].age} onClickHandler={this.switchNameHandler}>
           My Hobbies: Racing
         </Person>
         <Person name={persons[2].name} age={persons[2].age} />

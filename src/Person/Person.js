@@ -5,12 +5,15 @@ type Props = {
   age: number,
   children?: React.Node,
   name: string,
+  onClickHandler?: ?(e: SyntheticEvent<>) => void,
 };
 
 const Person = (props: Props) => {
-  const { age, children, name } = props;
+  const {
+    age, children, onClickHandler, name,
+  } = props;
   return (
-    <p>
+    <p onClick={onClickHandler}>
       I&apos;m&nbsp;
       {name}
       &nbsp;and I am&nbsp;
@@ -23,6 +26,7 @@ const Person = (props: Props) => {
 
 Person.defaultProps = {
   children: null,
+  onClickHandler: null,
 };
 
 export default Person;
