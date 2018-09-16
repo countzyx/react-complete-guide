@@ -1,12 +1,28 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 
-const Person = () => (
-  <p>
-    I&apos;m a person and I am&nbsp;
-    {Math.floor(Math.random() * 100)}
-    &nbsp;years old!
-  </p>
-);
+type Props = {
+  age: string,
+  children?: React.Node,
+  name: string,
+};
+
+const Person = (props: Props) => {
+  const { age, children, name } = props;
+  return (
+    <p>
+      I&apos;m&nbsp;
+      {name}
+      &nbsp;and I am&nbsp;
+      {age}
+      &nbsp;years old!
+      {children != null && <div>{children}</div>}
+    </p>
+  );
+};
+
+Person.defaultProps = {
+  children: null,
+};
 
 export default Person;
