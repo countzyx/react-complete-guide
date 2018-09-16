@@ -26,6 +26,7 @@
     "babel-eslint": "^9.0.0",
     "babel-preset-flow": "^6.23.0",
     "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
     "flow-bin": "^0.81.0",
     "flow-upgrade": "^1.0.4",
     "prettier-eslint": "^8.8.2"
