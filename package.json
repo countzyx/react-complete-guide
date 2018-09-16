@@ -2,6 +2,7 @@
   "name": "react-complete-guide",
   "version": "0.1.0",
   "private": true,
+  "main": "lib/index.js",
   "dependencies": {
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
@@ -9,8 +10,18 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "babel src/ -d lib/",
+    "prepublish": "npm run build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "flow": "flow"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^9.0.0",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^5.6.0",
+    "flow-bin": "^0.81.0",
+    "prettier-eslint": "^8.8.2"
   }
 }
