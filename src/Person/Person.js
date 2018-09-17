@@ -23,7 +23,7 @@ const Person = (props: Props) => {
         &nbsp;years old!
         {children != null && <div>{children}</div>}
       </p>
-      <input type="text" onChange={onChangeHandler} />
+      <input type="text" onChange={onChangeHandler} defaultValue={name} />
     </div>
   );
 };
