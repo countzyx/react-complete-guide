@@ -23,6 +23,16 @@ class App extends Component<Props, State> {
     });
   };
 
+  nameChangeHandler = (event: SyntheticEvent<HTMLInputElement>) => {
+    this.setState({
+      persons: [
+        { name: 'Max', age: 28 },
+        { name: event.currentTarget.value, age: 29 },
+        { name: 'Stephanie', age: 26 },
+      ],
+    });
+  };
+
   render = () => {
     const { persons } = this.state;
 
@@ -33,7 +43,12 @@ class App extends Component<Props, State> {
           Switch Name
         </button>
         <Person name={persons[0].name} age={persons[0].age} />
-        <Person name={persons[1].name} age={persons[1].age} onClickHandler={this.switchNameHandler}>
+        <Person
+          name={persons[1].name}
+          age={persons[1].age}
+          onClickHandler={this.switchNameHandler}
+          onChangeHandler={this.nameChangeHandler}
+        >
           My Hobbies: Racing
         </Person>
         <Person name={persons[2].name} age={persons[2].age} />
