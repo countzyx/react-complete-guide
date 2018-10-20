@@ -16,14 +16,14 @@ const Person = (props: Props) => {
   } = props;
   return (
     <div className="Person">
-      <p onClick={onClickHandler}>
+      <div onClick={onClickHandler}>
         I&apos;m&nbsp;
         {name}
         &nbsp;and I am&nbsp;
         {age}
         &nbsp;years old!
         {children != null && <div>{children}</div>}
-      </p>
+      </div>
       <input type="text" onChange={onChangeHandler} defaultValue={name} />
     </div>
   );
