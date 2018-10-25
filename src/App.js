@@ -27,8 +27,9 @@ class App extends Component<Props, State> {
 
   deleteNameHandler = (personIndex: number) => {
     const { persons } = this.state;
-    persons.splice(personIndex, 1);
-    this.setState({ persons });
+    const newPersons = [...persons];
+    newPersons.splice(personIndex, 1);
+    this.setState({ persons: newPersons });
   };
 
   togglePersonsHandler = () => {
