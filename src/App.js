@@ -5,22 +5,26 @@ import Person from './Person/Person';
 
 type Props = {};
 type State = {
-  persons: Array<{ age: number, name: string }>,
+  persons: Array<{ id: number, age: number, name: string }>,
   showPersons: boolean,
 };
 
 class App extends Component<Props, State> {
   state = {
-    persons: [{ name: 'Max', age: 28 }, { name: 'Manu', age: 29 }, { name: 'Stephanie', age: 26 }],
+    persons: [
+      { id: 1, name: 'Max', age: 28 },
+      { id: 2, name: 'Manu', age: 29 },
+      { id: 3, name: 'Stephanie', age: 26 },
+    ],
     showPersons: false,
   };
 
   nameChangeHandler = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({
       persons: [
-        { name: 'Max', age: 28 },
-        { name: event.currentTarget.value, age: 29 },
-        { name: 'Stephanie', age: 26 },
+        { id: 1, name: 'Max', age: 28 },
+        { id: 2, name: event.currentTarget.value, age: 29 },
+        { id: 3, name: 'Stephanie', age: 26 },
       ],
     });
   };
@@ -53,7 +57,12 @@ class App extends Component<Props, State> {
       personsOutput = (
         <div>
           {persons.map((p, i) => (
-            <Person onClickHandler={() => this.deleteNameHandler(i)} name={p.name} age={p.age} />
+            <Person
+              onClickHandler={() => this.deleteNameHandler(i)}
+              name={p.name}
+              age={p.age}
+              key={p.id}
+            />
           ))}
         </div>
       );
