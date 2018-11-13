@@ -19,13 +19,16 @@ class App extends Component<Props, State> {
     showPersons: false,
   };
 
-  nameChangeHandler = (event: SyntheticEvent<HTMLInputElement>) => {
+  nameChangeHandler = (event: SyntheticEvent<HTMLInputElement>, id: number) => {
+    const { persons } = this.state;
+    const personIndex = persons.findIndex(p => p.id === id);
+    const updatePerson = { ...persons[personIndex] };
+    updatePerson.name = event.currentTarget.value;
+    const updatePersons = [...persons];
+    updatePersons[personIndex] = updatePerson;
+
     this.setState({
-      persons: [
-        { id: 1, name: 'Max', age: 28 },
-        { id: 2, name: event.currentTarget.value, age: 29 },
-        { id: 3, name: 'Stephanie', age: 26 },
-      ],
+      persons: updatePersons,
     });
   };
 
@@ -62,6 +65,7 @@ class App extends Component<Props, State> {
               name={p.name}
               age={p.age}
               key={p.id}
+              onChangeHandler={event => this.nameChangeHandler(event, p.id)}
             />
           ))}
         </div>
