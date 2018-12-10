@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import './Person.css';
+import Radium from 'radium';
 
 type Props = {
   age: number,
@@ -35,4 +36,4 @@ Person.defaultProps = {
   onClickHandler: null,
 };
 
-export default Person;
+export default Radium(Person);

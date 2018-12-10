@@ -1,22 +1,23 @@
 // @flow
-import React, { Component } from 'react';
-import './App.css';
-import Person from './Person/Person';
+import React, { Component } from "react";
+import "./App.css";
+import Person from "./Person/Person";
+import Radium from "radium";
 
 type Props = {};
 type State = {
   persons: Array<{ id: number, age: number, name: string }>,
-  showPersons: boolean,
+  showPersons: boolean
 };
 
 class App extends Component<Props, State> {
   state = {
     persons: [
-      { id: 1, name: 'Max', age: 28 },
-      { id: 2, name: 'Manu', age: 29 },
-      { id: 3, name: 'Stephanie', age: 26 },
+      { id: 1, name: "Max", age: 28 },
+      { id: 2, name: "Manu", age: 29 },
+      { id: 3, name: "Stephanie", age: 26 }
     ],
-    showPersons: false,
+    showPersons: false
   };
 
   nameChangeHandler = (event: SyntheticEvent<HTMLInputElement>, id: number) => {
@@ -28,7 +29,7 @@ class App extends Component<Props, State> {
     updatePersons[personIndex] = updatePerson;
 
     this.setState({
-      persons: updatePersons,
+      persons: updatePersons
     });
   };
 
@@ -47,12 +48,16 @@ class App extends Component<Props, State> {
   render = () => {
     const { persons, showPersons } = this.state;
     const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
+      backgroundColor: "green",
+      color: "white",
+      font: "inherit",
+      border: "1px solid blue",
+      padding: "8px",
+      cursor: "pointer",
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "green"
+      }
     };
 
     let personsOutput = null;
@@ -72,22 +77,26 @@ class App extends Component<Props, State> {
         </div>
       );
 
-      style.backgroundColor = 'red';
+      style.backgroundColor = "red";
+      style[":hover"] = {
+        backgroundColor: "salmon",
+        color: "darkred"
+      };
     }
 
     const personCountCssClasses = [];
     if (persons.length <= 2) {
-      personCountCssClasses.push('red');
+      personCountCssClasses.push("red");
     }
 
     if (persons.length <= 1) {
-      personCountCssClasses.push('bold');
+      personCountCssClasses.push("bold");
     }
 
     return (
       <div className="App">
         <h1>Hi, I&apos;m a React App!</h1>
-        <p className={personCountCssClasses.join(' ')}>
+        <p className={personCountCssClasses.join(" ")}>
           {persons.length}
           &nbsp;persons listed
         </p>
@@ -100,4 +109,4 @@ class App extends Component<Props, State> {
   };
 }
 
-export default App;
+export default Radium(App);
