@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
-import Radium from "radium";
+import Radium, { StyleRoot } from "radium";
 
 type Props = {};
 type State = {
@@ -94,17 +94,23 @@ class App extends Component<Props, State> {
     }
 
     return (
-      <div className="App">
-        <h1>Hi, I&apos;m a React App!</h1>
-        <p className={personCountCssClasses.join(" ")}>
-          {persons.length}
-          &nbsp;persons listed
-        </p>
-        <button type="button" onClick={this.togglePersonsHandler} style={style}>
-          Toggle Persons
-        </button>
-        {personsOutput}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, I&apos;m a React App!</h1>
+          <p className={personCountCssClasses.join(" ")}>
+            {persons.length}
+            &nbsp;persons listed
+          </p>
+          <button
+            type="button"
+            onClick={this.togglePersonsHandler}
+            style={style}
+          >
+            Toggle Persons
+          </button>
+          {personsOutput}
+        </div>
+      </StyleRoot>
     );
   };
 }

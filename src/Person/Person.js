@@ -1,22 +1,25 @@
 // @flow
-import * as React from 'react';
-import './Person.css';
-import Radium from 'radium';
+import * as React from "react";
+import "./Person.css";
+import Radium from "radium";
 
 type Props = {
   age: number,
   children?: React.Node,
   name: string,
   onClickHandler?: ?(e: SyntheticEvent<>) => void,
-  onChangeHandler?: ?(e: SyntheticEvent<HTMLInputElement>) => void,
+  onChangeHandler?: ?(e: SyntheticEvent<HTMLInputElement>) => void
 };
 
 const Person = (props: Props) => {
-  const {
-    age, children, onChangeHandler, onClickHandler, name,
-  } = props;
+  const { age, children, onChangeHandler, onClickHandler, name } = props;
+  const style = {
+    "@media (min-width: 500px)": {
+      width: "450px"
+    }
+  };
   return (
-    <div className="Person">
+    <div className="Person" style={style}>
       <div onClick={onClickHandler}>
         I&apos;m&nbsp;
         {name}
@@ -33,7 +36,7 @@ const Person = (props: Props) => {
 Person.defaultProps = {
   children: null,
   onChangeHandler: null,
-  onClickHandler: null,
+  onClickHandler: null
 };
 
 export default Radium(Person);
