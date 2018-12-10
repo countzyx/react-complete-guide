@@ -75,9 +75,22 @@ class App extends Component<Props, State> {
       style.backgroundColor = 'red';
     }
 
+    const personCountCssClasses = [];
+    if (persons.length <= 2) {
+      personCountCssClasses.push('red');
+    }
+
+    if (persons.length <= 1) {
+      personCountCssClasses.push('bold');
+    }
+
     return (
       <div className="App">
         <h1>Hi, I&apos;m a React App!</h1>
+        <p className={personCountCssClasses.join(' ')}>
+          {persons.length}
+          &nbsp;persons listed
+        </p>
         <button type="button" onClick={this.togglePersonsHandler} style={style}>
           Toggle Persons
         </button>
