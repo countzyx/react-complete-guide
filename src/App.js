@@ -1,8 +1,7 @@
 // @flow
 import React, { Component } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import Person from "./Person/Person";
-import Radium, { StyleRoot } from "radium";
 
 type Props = {};
 type State = {
@@ -47,21 +46,9 @@ class App extends Component<Props, State> {
 
   render = () => {
     const { persons, showPersons } = this.state;
-    const style = {
-      backgroundColor: "green",
-      color: "white",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "pointer",
-      ":hover": {
-        backgroundColor: "lightgreen",
-        color: "green"
-      }
-    };
 
     let personsOutput = null;
-
+    let buttonClass = "";
     if (showPersons) {
       personsOutput = (
         <div>
@@ -76,43 +63,36 @@ class App extends Component<Props, State> {
           ))}
         </div>
       );
-
-      style.backgroundColor = "red";
-      style[":hover"] = {
-        backgroundColor: "salmon",
-        color: "darkred"
-      };
+      buttonClass = styles.Red;
     }
 
     const personCountCssClasses = [];
     if (persons.length <= 2) {
-      personCountCssClasses.push("red");
+      personCountCssClasses.push(styles.red);
     }
 
     if (persons.length <= 1) {
-      personCountCssClasses.push("bold");
+      personCountCssClasses.push(styles.bold);
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hi, I&apos;m a React App!</h1>
-          <p className={personCountCssClasses.join(" ")}>
-            {persons.length}
-            &nbsp;persons listed
-          </p>
-          <button
-            type="button"
-            onClick={this.togglePersonsHandler}
-            style={style}
-          >
-            Toggle Persons
-          </button>
-          {personsOutput}
-        </div>
-      </StyleRoot>
+      <div className={styles.App}>
+        <h1>Hi, I&apos;m a React App!</h1>
+        <p className={personCountCssClasses.join(" ")}>
+          {persons.length}
+          &nbsp;persons listed
+        </p>
+        <button
+          type="button"
+          className={buttonClass}
+          onClick={this.togglePersonsHandler}
+        >
+          Toggle Persons
+        </button>
+        {personsOutput}
+      </div>
     );
   };
 }
 
-export default Radium(App);
+export default App;

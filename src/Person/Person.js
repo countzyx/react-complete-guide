@@ -1,7 +1,6 @@
 // @flow
 import * as React from "react";
-import "./Person.css";
-import Radium from "radium";
+import styles from "./Person.module.css";
 
 type Props = {
   age: number,
@@ -13,13 +12,8 @@ type Props = {
 
 const Person = (props: Props) => {
   const { age, children, onChangeHandler, onClickHandler, name } = props;
-  const style = {
-    "@media (min-width: 500px)": {
-      width: "450px"
-    }
-  };
   return (
-    <div className="Person" style={style}>
+    <div className={styles.Person}>
       <div onClick={onClickHandler}>
         I&apos;m&nbsp;
         {name}
@@ -39,4 +33,4 @@ Person.defaultProps = {
   onClickHandler: null
 };
 
-export default Radium(Person);
+export default Person;
