@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from "react";
-import styles from "./App.module.css";
-import Person from "../components/Persons/Person/Person";
+import Styles from "./App.module.css";
+import Cockpit from "../components/Cockpit/Cockpit";
+import Persons from "../components/Persons/Persons";
 
 type Props = {};
 type State = {
@@ -48,47 +49,26 @@ class App extends Component<Props, State> {
     const { persons, showPersons } = this.state;
 
     let personsOutput = null;
-    let buttonClass = "";
     if (showPersons) {
       personsOutput = (
         <div>
-          {persons.map((p, i) => (
-            <Person
-              onClickHandler={() => this.deleteNameHandler(i)}
-              name={p.name}
-              age={p.age}
-              key={p.id}
-              onChangeHandler={event => this.nameChangeHandler(event, p.id)}
-            />
-          ))}
+          <Persons
+            persons={persons}
+            onChangeHandler={this.nameChangeHandler}
+            onClickHandler={this.deleteNameHandler}
+          />
         </div>
       );
-      buttonClass = styles.Red;
-    }
-
-    const personCountCssClasses = [];
-    if (persons.length <= 2) {
-      personCountCssClasses.push(styles.red);
-    }
-
-    if (persons.length <= 1) {
-      personCountCssClasses.push(styles.bold);
     }
 
     return (
-      <div className={styles.App}>
-        <h1>Hi, I&apos;m a React App!</h1>
-        <p className={personCountCssClasses.join(" ")}>
-          {persons.length}
-          &nbsp;persons listed
-        </p>
-        <button
-          type="button"
-          className={buttonClass}
-          onClick={this.togglePersonsHandler}
-        >
-          Toggle Persons
-        </button>
+      <div className={Styles.App}>
+        <Cockpit
+          personsCount={persons.length}
+          togglePersonsHandler={this.togglePersonsHandler}
+          useRedButton={showPersons}
+        />
+
         {personsOutput}
       </div>
     );

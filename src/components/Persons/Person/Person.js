@@ -1,16 +1,20 @@
 // @flow
-import * as React from "react";
+import React from "react";
+import type { Element, Node } from "react";
 import styles from "./Person.module.css";
 
 type Props = {
   age: number,
-  children?: React.Node,
+  children?: Node,
   name: string,
-  onClickHandler?: ?(e: SyntheticEvent<>) => void,
-  onChangeHandler?: ?(e: SyntheticEvent<HTMLInputElement>) => void
+  onClickHandler?: ?(e: SyntheticEvent<>, personIndex: number) => void,
+  onChangeHandler?: ?(
+    event: SyntheticEvent<HTMLInputElement>,
+    id: number
+  ) => void
 };
 
-const Person = (props: Props) => {
+const Person = (props: Props): Element<any> => {
   const { age, children, onChangeHandler, onClickHandler, name } = props;
   return (
     <div className={styles.Person}>
