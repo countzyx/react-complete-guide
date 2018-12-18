@@ -68,7 +68,6 @@ class App extends Component<Props, State> {
           togglePersonsHandler={this.togglePersonsHandler}
           useRedButton={showPersons}
         />
-
         {personsOutput}
       </div>
     );

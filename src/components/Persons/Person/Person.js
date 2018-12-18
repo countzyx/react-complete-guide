@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import type { Element, Node } from "react";
-import styles from "./Person.module.css";
+import Styles from "./Person.module.css";
 
 type Props = {
   age: number,
@@ -17,7 +17,7 @@ type Props = {
 const Person = (props: Props): Element<any> => {
   const { age, children, onChangeHandler, onClickHandler, name } = props;
   return (
-    <div className={styles.Person}>
+    <div className={Styles.Person}>
       <div onClick={onClickHandler}>
         I&apos;m&nbsp;
         {name}
