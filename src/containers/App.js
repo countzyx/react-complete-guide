@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import styles from "./App.module.css";
-import Person from "./Person/Person";
+import Person from "../components/Persons/Person/Person";
 
 type Props = {};
 type State = {
