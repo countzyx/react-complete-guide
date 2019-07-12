@@ -1,4 +1,5 @@
 [ignore]
+.*/build/.*
 
 [include]
 
@@ -7,5 +8,11 @@
 [lints]
 
 [options]
+module.system.node.resolve_dirname=node_modules
+esproposal.decorators=ignore
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
 
 [strict]

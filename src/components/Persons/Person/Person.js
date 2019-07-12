@@ -1,21 +1,20 @@
 // @flow
-import React from "react";
-import type { Element, Node } from "react";
-import Styles from "./Person.module.css";
+import React from 'react';
+import type { Element, Node } from 'react';
+import Styles from './Person.module.css';
 
 type Props = {
   age: number,
   children?: Node,
   name: string,
   onClickHandler?: ?(e: SyntheticEvent<>, personIndex: number) => void,
-  onChangeHandler?: ?(
-    event: SyntheticEvent<HTMLInputElement>,
-    id: number
-  ) => void
+  onChangeHandler?: ?(event: SyntheticEvent<HTMLInputElement>, id: number) => void,
 };
 
 const Person = (props: Props): Element<any> => {
-  const { age, children, onChangeHandler, onClickHandler, name } = props;
+  const {
+    age, children, onChangeHandler, onClickHandler, name,
+  } = props;
   return (
     <div className={Styles.Person}>
       <div onClick={onClickHandler}>
@@ -34,7 +33,7 @@ const Person = (props: Props): Element<any> => {
 Person.defaultProps = {
   children: null,
   onChangeHandler: null,
-  onClickHandler: null
+  onClickHandler: null,
 };
 
 export default Person;
